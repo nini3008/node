@@ -6,7 +6,7 @@ const storeSchema = new mongoose.Schema({
   name: {
     type: String,
     trim: true,
-    required: 'Please ebter a store name!'
+    required: 'Please enter a store name!'
   },
   slug: String,
   description: {
@@ -16,8 +16,8 @@ const storeSchema = new mongoose.Schema({
   tags: [String]
 });
 
-storeSchema.pre('save', function(next){
-  if(!this.isModifed('name')){
+storeSchema.pre('save', function(next) {
+  if(!this.isModified('name')){
     next();
     return;
   }
